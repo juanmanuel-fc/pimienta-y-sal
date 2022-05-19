@@ -11,21 +11,18 @@
     <%- include("./partials/nav.ejs") %> 
 
     <!-- Header -->
-    <%- include("./partials/header.ejs") %> 
 
     <!-- Menu Section -->
       <div class="ps-row ps-padding-64" id="menu">
         <div class="ps-col l6 ps-padding-large">
-          <h1 class="ps-center">Nuestro Menu</h1>
-          <br />
-          <h4>Items del Menu traidos dinamicamente desde un array en el controlador</h4>
-          <hr>
           <!-- Seccion dinamica comienza aqui -->
           <% menuItems.forEach(item => { %>
-            <h4><%= item.nombre %></h4>
+          
+            <h1 class="ps-center"> <%= item.nombre %> </h1>
             <p class="ps-text-grey"> <%= item.detalle %> $<%= item.precio.toFixed(2) %> </p> 
-            <p> <a href="/detalle/<%= item.id %>">Ver detalle de <%= item.nombre.toLowerCase() %>  </a> </p>
-            <p>--- --- --- ---</p>
+            <img src=" /images/<%= item.imagen %> " alt="">
+            <p> <%= item.resumen %> </p>
+            <a href="" onclick="history.back()" >Volver atrás</a>
           <% }) %>
 
         
