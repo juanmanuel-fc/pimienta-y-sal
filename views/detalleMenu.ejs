@@ -13,38 +13,22 @@
     <!-- Header -->
     <%- include("./partials/header.ejs") %> 
 
-    <!-- Page content -->
-    
-
-      <!-- Menu Section -->
+    <!-- Menu Section -->
       <div class="ps-row ps-padding-64" id="menu">
         <div class="ps-col l6 ps-padding-large">
           <h1 class="ps-center">Nuestro Menu</h1>
           <br />
-          <h4>Carpaccio fresco</h4>
-          <p class="ps-text-grey">
-            Entrada Carpaccio de salmón con cítricos U$S 65.50
-          </p>
-          <br />
+          <h5>Items del Menu traidos dinamicamente desde un array en el controlador</h5>
 
-          <h4>Risotto de berenjena</h4>
-          <p class="ps-text-grey">
-            Risotto de berenjena y queso de cabra U$S 47.00
-          </p>
-          <br />
+          <!-- Seccion dinamica comienza aqui -->
+          <% menuItems.forEach(item => { %>
+            <h4><%= item.nombre %></h4>
+            <p class="ps-text-grey"> <%= item.detalle %> $<%= item.precio.toFixed(2) %> </p> 
+            <p>--- --- --- ---</p>
+          <% }) %>
 
-          <h4>Mousse de arroz</h4>
-          <p class="ps-text-grey">
-            Mousse de arroz con leche y aroma de azahar U$S 27.50
-          </p>
-          <br />
 
-          <h4>Espárragos blancos</h4>
-          <p class="ps-text-grey">
-            Espárragos blancos con vinagreta de verduras y jamón ibérico U$S
-            37.50
-          </p>
-        </div>
+
 
         <div class="ps-col l6 ps-padding-large ps-img-menu">
           <img
@@ -55,6 +39,10 @@
           />
         </div>
       </div>
+
+      <!-- Impresion prueba items menu -->
+
+      
 
       <!-- Footer -->
       <%- include("./partials/footer.ejs") %> 
